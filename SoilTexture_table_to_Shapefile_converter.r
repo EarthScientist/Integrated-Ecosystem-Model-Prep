@@ -21,7 +21,6 @@ colnames(soil.table)<-c("id", "lon", "lat", "variable_name", "land_area","pct_sa
 soil.shape <- convert.to.shapefile(soil.dd, soil.table, "id", 1) # not sure what the 1 is...  I think it means points
 
 # here we will turn that shapefile R object into an output format that is readable by ArcMap
-write.shapefile(soil.shape, "/workspace/Shared/IEM/Data/Input/soil_texture/output_maps/soiltxt_igbp_panarctic_HD.shp", arcgis=T)
-
+write.shapefile(soil.shape, "/workspace/Shared/IEM/Data/Input/soil_texture/output_maps/soiltxt_igbp_panarctic_HD", arcgis=T)
 
 # voila a new output shapefile for you to exploit!  created completely open source.
