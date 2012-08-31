@@ -80,9 +80,9 @@ for (m in 1:12) {  #month loop
        r <- matrix(NA,nrow(template.map.latlong.rad),ncol(template.map.latlong.rad)) #Make a matrix for  each day
        #Run the function  for each day
   	   r <- calcRa(md[t],template.map.latlong.rad,nrow(template.map.latlong.rad),ncol(template.map.latlong.rad))
- 	     #Slot the daily matrix r into array temp and delete r
+ 	  #Slot the daily matrix r into array temp and delete r
        temp[t,,] = r
- 	     rm(r)
+        rm(r)
     }      #End looping over number of days per month
     #Average the daily Ra values into a single month value
     ra <- apply(temp,c(2,3),mean, na.rm = TRUE)
@@ -98,4 +98,5 @@ for (m in 1:12) {  #month loop
     #writeRaster(out,filename=paste('ak_Ra_',month[m],'.tif',sep=''),format = 'GTiff',options='COMPRESS=LZW',datatype='FLT4S',overwrite=T)
     rm(ra,out)  #delete files that will be regenerated for the next month
     print(paste(" >>> completed: ",m,sep=""))
+
 } #close month loop
